@@ -1,8 +1,4 @@
-$primary: #6c5ce7;
-$bg: #f5f6fa;
-$white: #ffffff;
-
-$radius: 16px;
-$padding: 1rem;
-
-$font-main: 'Segoe UI', sans-serif;
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+@import 'components';
