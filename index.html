@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Anti-Saturator</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>Anti-Saturator</h1>
+  </header>
+
+  <main class="container">
+
+    <!-- Quiz énergie -->
+    <section id="quiz-section" class="card">
+      <h2>Ton niveau d'énergie</h2>
+      <div id="quiz-container"></div>
+      <button id="start-quiz" class="btn">Commencer</button>
+    </section>
+
+    <!-- formulaire -->
+    <section class="card">
+      <h2>Ajouter une tâche</h2>
+      <form id="task-form">
+        <input type="text" id="task-title" placeholder="Titre tâche" />
+        <button type="submit" class="btn">Ajouter</button>
+      </form>
+    </section>
+
+    <!-- les tach  -->
+    <section id="focus-section" class="card focus">
+      <h2>Tâche recommandée</h2>
+      <div id="focus-task"></div>
+    </section>
+
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
