@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <title>Anti-Saturator</title>
-  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+
 </head>
+
 <body>
 
-  <header class="header">
+  <!-- <header class="header">
     <h1>Anti-Saturator</h1>
   </header>
 
   <main class="container">
 
-    <!-- Quiz énergie -->
+    <-- Quiz énergie 
     <section id="quiz-section" class="card">
       <h2>Ton niveau d'énergie</h2>
       <div id="quiz-container"></div>
       <button id="start-quiz" class="btn">Commencer</button>
     </section>
 
-    <!-- formulaire -->
+    <-- formulaire --
     <section class="card">
       <h2>Ajouter une tâche</h2>
       <form id="task-form">
@@ -29,13 +31,42 @@
       </form>
     </section>
 
-    <!-- les tach  -->
+    <! les tach  --
     <section id="focus-section" class="card focus">
       <h2>Tâche recommandée</h2>
       <div id="focus-task"></div>
     </section>
 
-  </main>
+  </main> -->
+
+  <div class="container">
+
+
+        <!-- ADD CARD -->
+        
+        <div class="card" id="addCard">
+            <h2>Add Tasks</h2>
+            
+
+            <div class="flex">
+
+                <input id="taskInput" placeholder="Enter task . . .">
+
+                <button onclick="addTask()">+</button>
+
+            </div>
+
+            <div id="taskList"></div>
+
+
+            <button class="button_quiz" onclick="goQuiz()">
+
+                Start Quiz →
+
+            </button>
+
+
+        </div>
 
   <script type="module" src="src/app.js"></script>
 </body>
