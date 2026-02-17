@@ -1,6 +1,9 @@
-function sauvgarderTâches(){
+function sauvgarderTâches(tâche){
 
-let Task= JSON.parse()||[];
+let Task= JSON.parse(localStorage.getItem("mesTasks"))||[];
+
+
+Task.push(tâche);
 
 
 
