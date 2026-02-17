@@ -10,3 +10,15 @@
   cursor: pointer;
   transition: $transition;
 }
+
+@mixin input-style {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: $primary-color; 
+  }
+}
