@@ -1,3 +1,5 @@
+// window.tasksAjouter = window.tasksAjouter || []; //il faut le declare à l'ex du function
+let taskAjout = [];
 export function addTask() {
   
       const taskList = document.getElementById("taskList");
@@ -39,17 +41,27 @@ export function addTask() {
       span.textContent = range.value;
     });
   });
+ 
     //form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const title = form.title.value;
-    const urgence = form.urgence.value;
-    const importance = form.importance.value;
-    const frequence = form.frequence.value;
-
-    alert(`Task added:\nTitre: ${title}\nUrgence: ${urgence}\nImportance: ${importance}\nFréquence: ${frequence}`);
-
+    // 2. SECURITÉ : Si pour une raison X tasksAjouter est undefined, on le recrée
+        if (!taskAjout) {
+            taskAjout = [];
+        }
+   // 1. Création de l'objet avec les données du formulaire
+    const newTask = {
+        id: Date.now(), // Un ID unique basé sur le temps
+        title: form.title.value,
+        urgence: parseInt(form.urgence.value), // On convertit en nombre
+        importance: parseInt(form.importance.value),
+        frequence: parseInt(form.frequence.value),
+        
+    };
+taskAjout.push(newTask);
     //remove card
     taskCard.remove();
+// console.log("Bouton cliqué !")
+// console.log(taskAjout)
   });
 }
