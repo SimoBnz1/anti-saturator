@@ -1,0 +1,86 @@
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: sans-serif;
+}
+
+.container {
+  width: 600px;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1019607843);
+  backdrop-filter: blur(40px);
+  padding: 100px 40px;
+  border-radius: 15px;
+  color: #ffffff;
+  animation: fade 0.5s;
+}
+.card h2 {
+  position: absolute;
+  top: 0;
+  left: 35%;
+  font-size: 40px;
+}
+.card .flex {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card .flex input {
+  flex: 1;
+  font-size: 20px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-family: system-ui;
+}
+.card .flex button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 30px;
+  background: #00ffd5;
+  width: 20%;
+  margin-top: 10px;
+}
+.card .button_quiz {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  padding: 10px;
+  background: #00ffd5;
+  color: white;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 10px;
+  font-family: system-ui;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=main.css.map */
