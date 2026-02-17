@@ -1,0 +1,65 @@
+body {
+  height: 100vh;
+  @include flex-center;
+  background: $bg-gradient;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 600px;
+}
+
+.card {
+  position: relative;
+  background: $card-bg;
+  backdrop-filter: $blur;
+  padding: 100px 40px;
+  border-radius: $radius;
+  color: $text-light;
+  animation: fade 0.5s;
+
+  h2 {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    font-size: 40px;
+  }
+
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+
+    input {
+      flex: 1;
+      font-size: 20px;
+      padding: 15px 10px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-family: system-ui;
+    }
+
+    button {
+      @include button-base;
+      font-size: 30px;
+      background: $primary;
+      width: 20%;
+      margin-top: 10px;
+    }
+  }
+
+  .button_quiz {
+    @include button-base;
+    padding: 10px;
+    background: $primary;
+    color: white;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 10px;
+    font-family: system-ui;
+  }
+}
