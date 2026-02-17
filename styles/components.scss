@@ -32,15 +32,15 @@ body {
     align-items: center;
     margin-bottom: 10px;
 
-    input {
-      flex: 1;
-      font-size: 20px;
-      padding: 15px 10px;
-      border: none;
-      border-radius: 10px;
-      outline: none;
-      font-family: system-ui;
-    }
+    // input {
+    //   flex: 1;
+    //   font-size: 20px;
+    //   padding: 15px 10px;
+    //   border: none;
+    //   border-radius: 10px;
+    //   outline: none;
+    //   font-family: system-ui;
+    // }
 
     button {
       @include button-base;
@@ -48,6 +48,8 @@ body {
       background: $primary;
       width: 20%;
       margin-top: 10px;
+      margin-left: 40%
+      
     }
   }
 

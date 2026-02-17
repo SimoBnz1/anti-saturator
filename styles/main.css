@@ -43,15 +43,6 @@ body {
   align-items: center;
   margin-bottom: 10px;
 }
-.card .flex input {
-  flex: 1;
-  font-size: 20px;
-  padding: 15px 10px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  font-family: system-ui;
-}
 .card .flex button {
   border: none;
   border-radius: 10px;
@@ -61,6 +52,7 @@ body {
   background: #00ffd5;
   width: 20%;
   margin-top: 10px;
+  margin-left: 40%;
 }
 .card .button_quiz {
   border: none;
