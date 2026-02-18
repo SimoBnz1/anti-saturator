@@ -13,6 +13,11 @@ localStorage.setItem('Task',JSON.stringify(Task));
 }
 
 
-function récupérerTâches(){}
+function récupérerTâches(){
+
+return  JSON.parse(localStorage.getItem("mesTasks"))||[];
+
+
+}
 
 function suppTâches(){}
