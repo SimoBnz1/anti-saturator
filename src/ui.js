@@ -62,6 +62,83 @@ taskAjout.push(newTask);
     //remove card
     taskCard.remove();
 // console.log("Bouton cliqué !")
-// console.log(taskAjout)
+console.log(taskAjout)
   });
 }
+
+
+
+export function goQuiz() {
+//   const flex=document.getElementById('flex')
+// flex.classList.add("hidden");
+  const titleh2 = document.getElementById('title');
+  const cardQuiz = document.getElementById('cardQuiz');
+
+  if (titleh2) titleh2.remove();
+  if (cardQuiz) cardQuiz.style.display="block" // affiche le div
+   const quizCard = document.createElement("div");
+  quizCard.classList.add("card");
+
+
+ quizCard.innerHTML = `
+  <h3 class="quize-title">Évalue ton énergie</h3>
+  <div id="cardQuiz" class="hidden">
+
+    <div class="question">
+      <p>1. Comment te sens-tu aujourd'hui ?</p>
+      <div class="range-box">
+        <input type="range" min="1" max="10" value="5">
+        <span class="range-value">5</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2. As-tu bien dormi ?</p>
+      <div class="range-box">
+        <input type="range" min="1" max="10" value="5">
+        <span class="range-value">5</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>3. Es-tu motivé(e) ?</p>
+      <div class="range-box">
+        <input type="range" min="1" max="10" value="5">
+        <span class="range-value">5</span>
+      </div>
+    </div>
+
+    <button class="btn-primary">Valider</button>
+  </div>
+`;
+
+
+   taskList.appendChild(quizCard);
+   const ranges = quizCard.querySelectorAll("input[type='range']");
+const btnValid = quizCard.querySelector(".btn-primary");
+
+// tableau li ghadi ystocki values
+let answers = [];
+
+// live update dyal span
+ranges.forEach(range => {
+  const valueSpan = range.nextElementSibling;
+
+  range.addEventListener("input", () => {
+    valueSpan.textContent = range.value;
+  });
+});
+btnValid.addEventListener("click", () => {
+
+  answers = []; // nresetiw tableau
+
+  ranges.forEach(range => {
+    answers.push(Number(range.value));
+  });
+
+  console.log("Réponses :", answers);
+// mlli
+
+
+})}
+
