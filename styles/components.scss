@@ -5,16 +5,14 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  width: 600px;
-}
+
 
 
 .card {
   position: relative;
   background: $card-bg;
   backdrop-filter: $blur;
-  padding: 100px 40px;
+  padding: 40px;
   border-radius: $radius;
   color: $text-light;
   animation: fade 0.5s;
@@ -87,4 +85,51 @@ body {
       cursor: pointer;
     }
   }
+
+  .btn-primary{
+     @include button-base;
+    @extend .hover-effect;
+    background: $primary;
+     color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      margin: 40px;
+
+  }
+  .question{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+ .question input[type="range"] {
+  width: 100%;
 }
+  #cardQuiz{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .quize-title{
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    color: $primary-color;
+  }
+  .range-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.range-box input {
+  flex: 1;
+}
+}
+.container{
+  width: 500px;
+
+}
+
