@@ -1,7 +1,11 @@
 // window.tasksAjouter = window.tasksAjouter || []; //il faut le declare à l'ex du function
 let taskAjout = [];
 export function addTask() {
-  
+   const btnAdd = document.getElementById('btnadd');
+  const titleh2 = document.getElementById('titleh2');
+
+  if (btnAdd) btnAdd.style.display = "none";
+  if (titleh2) titleh2.style.display = "none";
       const taskList = document.getElementById("taskList");
 
   const taskCard = document.createElement("div");
@@ -45,100 +49,119 @@ export function addTask() {
     //form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // 2. SECURITÉ : Si pour une raison X tasksAjouter est undefined, on le recrée
+   
         if (!taskAjout) {
             taskAjout = [];
         }
-   // 1. Création de l'objet avec les données du formulaire
+   // objet 
     const newTask = {
-        id: Date.now(), // Un ID unique basé sur le temps
+        id: taskAjout.length+1, 
         title: form.title.value,
-        urgence: parseInt(form.urgence.value), // On convertit en nombre
+        urgence: parseInt(form.urgence.value), 
         importance: parseInt(form.importance.value),
         frequence: parseInt(form.frequence.value),
         
-    };
-taskAjout.push(newTask);
-    //remove card
-    taskCard.remove();
-// console.log("Bouton cliqué !")
-console.log(taskAjout)
+    };taskAjout.push(newTask);
+
+// supprimer form
+taskCard.remove();
+
+// afficher les tâches
+renderTasks();
+
+// afficher bouton et title
+btnAdd.style.display = "block";
+titleh2.style.display = "block";
+
+  });
+}
+
+function renderTasks() {
+  const taskList = document.getElementById("taskList");
+
+  // nms7o contenu 9dim
+  taskList.innerHTML = "";
+
+  taskAjout.forEach(task => {
+    const taskItem = document.createElement("div");
+    taskItem.classList.add("card");
+
+    taskItem.innerHTML = `
+      <h3>${task.title}</h3>
+      <p>Urgence: ${task.urgence}</p>
+      <p>Importance: ${task.importance}</p>
+      <p>Fréquence: ${task.frequence}</p>
+    `;
+
+    taskList.appendChild(taskItem);
   });
 }
 
 
-
 export function goQuiz() {
-//   const flex=document.getElementById('flex')
-// flex.classList.add("hidden");
-  const titleh2 = document.getElementById('title');
-  const cardQuiz = document.getElementById('cardQuiz');
+  // Cacher button et le title
+  const btnAdd = document.getElementById('btnadd');
+  const titleh2 = document.getElementById('titleh2');
 
-  if (titleh2) titleh2.remove();
-  if (cardQuiz) cardQuiz.style.display="block" // affiche le div
-   const quizCard = document.createElement("div");
+  if (btnAdd) btnAdd.style.display = "none";
+  if (titleh2) titleh2.style.display = "none";
+
+  // Création du quiz
+  const taskList = document.getElementById("taskList"); // pour append
+  const quizCard = document.createElement("div");
   quizCard.classList.add("card");
 
+  quizCard.innerHTML = `
+    <h3 class="quize-title">Évalue ton énergie</h3>
+    <div id="cardQuiz">
 
- quizCard.innerHTML = `
-  <h3 class="quize-title">Évalue ton énergie</h3>
-  <div id="cardQuiz" class="hidden">
-
-    <div class="question">
-      <p>1. Comment te sens-tu aujourd'hui ?</p>
-      <div class="range-box">
-        <input type="range" min="1" max="10" value="5">
-        <span class="range-value">5</span>
+      <div class="question">
+        <p>1. Comment te sens-tu aujourd'hui ?</p>
+        <div class="range-box">
+          <input type="range" min="1" max="10" value="5">
+          <span class="range-value">5</span>
+        </div>
       </div>
-    </div>
 
-    <div class="question">
-      <p>2. As-tu bien dormi ?</p>
-      <div class="range-box">
-        <input type="range" min="1" max="10" value="5">
-        <span class="range-value">5</span>
+      <div class="question">
+        <p>2. As-tu bien dormi ?</p>
+        <div class="range-box">
+          <input type="range" min="1" max="10" value="5">
+          <span class="range-value">5</span>
+        </div>
       </div>
-    </div>
 
-    <div class="question">
-      <p>3. Es-tu motivé(e) ?</p>
-      <div class="range-box">
-        <input type="range" min="1" max="10" value="5">
-        <span class="range-value">5</span>
+      <div class="question">
+        <p>3. Es-tu motivé(e) ?</p>
+        <div class="range-box">
+          <input type="range" min="1" max="10" value="5">
+          <span class="range-value">5</span>
+        </div>
       </div>
+
+      <button class="btn-primary">Valider</button>
     </div>
+  `;
 
-    <button class="btn-primary">Valider</button>
-  </div>
-`;
+  taskList.appendChild(quizCard);
 
-
-   taskList.appendChild(quizCard);
-   const ranges = quizCard.querySelectorAll("input[type='range']");
-const btnValid = quizCard.querySelector(".btn-primary");
-
-// tableau li ghadi ystocki values
-let answers = [];
-
-// live update dyal span
-ranges.forEach(range => {
-  const valueSpan = range.nextElementSibling;
-
-  range.addEventListener("input", () => {
-    valueSpan.textContent = range.value;
-  });
-});
-btnValid.addEventListener("click", () => {
-
-  answers = []; // nresetiw tableau
+  // span
+  const ranges = quizCard.querySelectorAll("input[type='range']");
+  const btnValid = quizCard.querySelector(".btn-primary");
+  let answers = [];
 
   ranges.forEach(range => {
-    answers.push(Number(range.value));
+    const valueSpan = range.nextElementSibling;
+    range.addEventListener("input", () => {
+      valueSpan.textContent = range.value;
+    });
   });
 
-  console.log("Réponses :", answers);
-// mlli
-
-
-})}
+  // Click sur Valider
+  btnValid.addEventListener("click", () => {
+    answers = [];
+    ranges.forEach(range => answers.push(Number(range.value)));
+    console.log("Réponses :", answers);
+  });
+}
 
