@@ -20,4 +20,8 @@ return  JSON.parse(localStorage.getItem("mesTasks"))||[];
 
 }
 
-function suppTâches(){}
+function suppTâches(){
+
+const task=récupérerTâches();
+
+}
