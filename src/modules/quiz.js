@@ -1,4 +1,4 @@
-
+export {};
 let question1 = document.getElementById('question1');
 let question2 =document.getElementById('question2');
 let question3 = document.getElementById('question3');
