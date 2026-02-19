@@ -1,5 +1,5 @@
 // window.tasksAjouter = window.tasksAjouter || []; //il faut le declare à l'ex du function
-let taskAjout = [];
+let taskAjout = JSON.parse(localStorage.getItem("mesTasks")) ||[];
 export function addTask() {
    const btnAdd = document.getElementById('btnadd');
   const titleh2 = document.getElementById('titleh2');
