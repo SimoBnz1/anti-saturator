@@ -1,0 +1,160 @@
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hover-effect, .card .btn-primary, .card .task-form .btn-submit {
+  transition: transform 0.2s ease-in-out;
+}
+.hover-effect:hover, .card .btn-primary:hover, .card .task-form .btn-submit:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: sans-serif;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1019607843);
+  backdrop-filter: blur(40px);
+  padding: 40px;
+  border-radius: 15px;
+  color: #ffffff;
+  animation: fade 0.5s;
+}
+.card h2 {
+  position: absolute;
+  top: 0;
+  left: 35%;
+  font-size: 40px;
+}
+.card .flex {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card .flex button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 30px;
+  background: #00ffd5;
+  width: 20%;
+  margin-top: 10px;
+  margin-left: 40%;
+}
+.card .button_quiz {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  padding: 10px;
+  background: #00ffd5;
+  color: black;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 10px;
+  font-family: system-ui;
+}
+.card .task-title {
+  font-size: 1.5rem;
+  color: #00ffd5;
+}
+.card .task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card .task-form label {
+  font-weight: bold;
+}
+.card .task-form label span {
+  color: #00ffd5;
+  margin-left: 5px;
+}
+.card .task-form input[type=text] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.card .task-form input[type=text]:focus {
+  border-color: #00ffd5;
+}
+.card .task-form .btn-submit {
+  background: #00ffd5;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.card .btn-primary {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: #00ffd5;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin: 40px;
+}
+.card .question {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.card .question input[type=range] {
+  width: 100%;
+}
+.card #cardQuiz {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.card .quize-title {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #00ffd5;
+}
+.card .range-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card .range-box input {
+  flex: 1;
+}
+
+.container {
+  width: 500px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=main.css.map */
