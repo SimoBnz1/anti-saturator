@@ -11,3 +11,35 @@ function calculateScore(task, energy) {
   const adjustedEffort = task.effort * (10 - energy) / 10;
   return task.importance + task.urgence - adjustedEffort;
 }
+
+function getTopTask(tasks, energy) {
+
+  let bestTask = null;
+  let bestScore = 0;
+
+  for (let i = 0; i < tasks.length; i++) {
+
+    if (!tasks[i].skipped) {
+
+      let currentScore = calculateScore(tasks[i], energy);
+
+      if (
+        currentScore > bestScore ||
+
+        (
+          currentScore === bestScore &&
+          tasks[i].urgence > bestTask?.urgence
+        )
+      ) {
+        bestScore = currentScore;
+        bestTask = tasks[i];
+      }
+
+    }
+  }
+
+  return bestTask;
+}
+
+console.log(getTopTask(tasks, energy));
+
