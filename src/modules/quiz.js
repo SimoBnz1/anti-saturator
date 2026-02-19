@@ -4,6 +4,7 @@ let question2 =document.getElementById('question2');
 let question3 = document.getElementById('question3');
 let result = document.getElementById('result');
 
+
 function addQuize(){
     let scor = Number(question1.value) + Number(question2.value) + Number(question3.value);
     let average = scor / 3;
