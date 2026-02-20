@@ -1,26 +1,33 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Anti-Saturator</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="card" id="addCard">
-        <h2 id="titleh2">Add Tasks</h2>
+<head>
+  <meta charset="UTF-8" />
+  <title>Anti-Saturator</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
 
-        <div class="flex">
-          <button onclick="addTask()" id="btnadd">+</button>
-        </div>
+<body>
+  <div class="container">
+    <div class="card" id="addCard">
+      <h2 id="titleh2">Add Tasks</h2>
 
-        <div id="taskList"></div>
-
-        <button class="button_quiz" onclick="goQuiz()">Start Quiz →</button>
+      <div class="flex">
+        <button id="btnadd">+</button>
       </div>
-    </div>
 
-    <script type="module" src="/src/modules/app.js"></script>
-  </body>
+      <div id="taskList" class="taskList">
+        
+      </div>
+
+
+      <button id="startQuiz" class="button_quiz">
+        Start Quiz →
+      </button>
+    </div>
+  </div>
+ 
+  <script type="module" src="./src/modules/app.js"></script>
+</body>
+
 </html>

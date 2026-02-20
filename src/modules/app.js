@@ -1,5 +1,6 @@
 import { addTask, goQuiz } from "./ui.js";
 
-// rendre fonctions global pour HTML
-window.addTask = addTask;
-window.goQuiz = goQuiz;
+console.log("app.js chargé ✅");
+
+document.getElementById("btnadd").addEventListener("click", addTask);
+document.getElementById("startQuiz").addEventListener("click", goQuiz);

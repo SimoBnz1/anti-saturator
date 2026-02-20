@@ -5,7 +5,9 @@ body {
   font-family: sans-serif;
 }
 
-
+.marg{
+      margin-top: 50px;
+    }
 
 
 .card {
@@ -16,6 +18,13 @@ body {
   border-radius: $radius;
   color: $text-light;
   animation: fade 0.5s;
+
+  
+    .marg{
+      margin-top: 50px;
+    }
+
+
 
   h2 {
     position: absolute;
@@ -38,7 +47,6 @@ body {
       width: 20%;
       margin-top: 10px;
       margin-left: 40%
-      
     }
   }
 
@@ -58,6 +66,7 @@ body {
     font-size: 1.5rem;
     color: $primary-color;
   }
+
   .task-form {
     display: flex;
     flex-direction: column;
@@ -65,15 +74,15 @@ body {
 
     label {
       font-weight: bold;
-      
-      span { 
+
+      span {
         color: $primary-color;
         margin-left: 5px;
       }
     }
 
     input[type="text"] {
-       @include input-style; // pour mixin scss
+      @include input-style; // pour mixin scss
     }
 
     .btn-submit {
@@ -86,49 +95,55 @@ body {
     }
   }
 
-  .btn-primary{
-     @include button-base;
+  .btn-primary {
+    @include button-base;
     @extend .hover-effect;
     background: $primary;
-     color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      margin: 40px;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 40px;
 
   }
-  .question{
+
+  .question {
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
- .question input[type="range"] {
-  width: 100%;
-}
-  #cardQuiz{
+
+  .question input[type="range"] {
+    width: 100%;
+  }
+
+  #cardQuiz {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 30px;
   }
-  .quize-title{
+
+  .quize-title {
     margin-top: 0;
     text-align: center;
     font-size: 1.5rem;
     color: $primary-color;
   }
+
   .range-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .range-box input {
+    flex: 1;
+  }
 }
 
-.range-box input {
-  flex: 1;
-}
-}
-.container{
+.container {
   width: 500px;
 
 }
