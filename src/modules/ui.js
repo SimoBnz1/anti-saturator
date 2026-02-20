@@ -1,13 +1,14 @@
 import { sauvegarderTache, recupererTaches } from "./storage.js";
+import { calculateEnergy } from "./quiz.js";
+import { getTopTask } from "./sorter.js";
 
-// récupération tasks depuis localStorage
+
 let taskAjout = recupererTaches();
 
 export function addTask() {
   const btnAdd = document.getElementById('btnadd');
   const titleh2 = document.getElementById('titleh2');
   const taskList = document.getElementById("taskList");
-
   if (btnAdd) btnAdd.style.display = "none";
   if (titleh2) titleh2.style.display = "none";
 
@@ -52,13 +53,13 @@ export function addTask() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // id unique avec Date.now()
     const newTask = {
       id: Date.now(),
       title: form.title.value,
       urgence: parseInt(form.urgence.value),
       importance: parseInt(form.importance.value),
       frequence: parseInt(form.frequence.value),
+      skipped: false
     };
 
     taskAjout.push(newTask);
@@ -79,13 +80,23 @@ function renderTasks() {
   taskAjout.forEach(task => {
     const taskItem = document.createElement("div");
     taskItem.classList.add("card");
-
+  taskItem.classList.add("marg");
     taskItem.innerHTML = `
+    
       <h3>${task.title}</h3>
       <p>Urgence: ${task.urgence}</p>
       <p>Importance: ${task.importance}</p>
       <p>Fréquence: ${task.frequence}</p>
+      <button class="btn-delete">Supprimer</button>
+    
     `;
+
+    const btnDelete = taskItem.querySelector(".btn-delete");
+    btnDelete.addEventListener("click", () => {
+      taskAjout = taskAjout.filter(t => t.id !== task.id);
+      localStorage.setItem("mesTasks", JSON.stringify(taskAjout));
+      renderTasks();
+    });
 
     taskList.appendChild(taskItem);
   });
@@ -108,7 +119,7 @@ export function goQuiz() {
       <div class="question">
         <p>1. Comment te sens-tu aujourd'hui ?</p>
         <div class="range-box">
-          <input type="range" min="1" max="10" value="5">
+          <input type="range" min="1" max="5" value="5">
           <span class="range-value">5</span>
         </div>
       </div>
@@ -116,7 +127,7 @@ export function goQuiz() {
       <div class="question">
         <p>2. As-tu bien dormi ?</p>
         <div class="range-box">
-          <input type="range" min="1" max="10" value="5">
+          <input type="range" min="1" max="5" value="5">
           <span class="range-value">5</span>
         </div>
       </div>
@@ -124,7 +135,7 @@ export function goQuiz() {
       <div class="question">
         <p>3. Es-tu motivé(e) ?</p>
         <div class="range-box">
-          <input type="range" min="1" max="10" value="5">
+          <input type="range" min="1" max="5" value="5">
           <span class="range-value">5</span>
         </div>
       </div>
@@ -146,13 +157,21 @@ export function goQuiz() {
   });
 
   btnValid.addEventListener("click", () => {
-    let answers = [];
-    ranges.forEach(range => answers.push(Number(range.value)));
-    console.log("Réponses :", answers);
+    const energy = calculateEnergy(ranges);
+    const tasks = recupererTaches();
+    const bestTask = getTopTask(tasks, energy);
+
+    console.log("Energy:", energy);
+    console.log("Best task:", bestTask);
+
+    if (bestTask) {
+      alert(`la bonne tache est: ${bestTask.title}`);
+    } else {
+      alert("rien des taches");
+    }
   });
 }
 
-// afficher tasks au load
 document.addEventListener("DOMContentLoaded", () => {
   renderTasks();
 });
